@@ -4,16 +4,16 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 
-import javax.swing.JPanel;//ÀàµÄíÔ´
+import javax.swing.JPanel;//ç±»çš„ä¾†æº
 
 public class myback extends JPanel {
 
-	private Ball[] balls; // Êı×é ±íÊ¾Ò»×éÊı¾İ
+	private Ball[] balls; // æ•°ç»„ è¡¨ç¤ºä¸€ç»„æ•°æ®
 
-	// ¹¹Ôìº¯Êı
+	// æ„é€ å‡½æ•°
 	public myback() {
 
-		balls = new Ball[7]; // ³õÊ¼»¯ Ñ­»·¸³Öµ
+		balls = new Ball[7]; // åˆå§‹åŒ– å¾ªç¯èµ‹å€¼
 		for (int i = 0; i < balls.length; i++) {
 			balls[i] = new Ball();
 			if (i == 6) {
@@ -21,11 +21,11 @@ public class myback extends JPanel {
 			} else
 				balls[i].setColor(Color.red);
 		}
-		// ¸Ä±äÊı×Ö
+		// æ”¹å˜æ•°å­—
 		for (int i = 0; i < balls.length; i++) {
 
 			if (i == 6) {
-				// random Ëæ»ú²úÉú0-1µÄĞ¡Êı ËùÒÔ¼Ó1 µÃµ½1-16
+				// random éšæœºäº§ç”Ÿ0-1çš„å°æ•° æ‰€ä»¥åŠ 1 å¾—åˆ°1-16
 				int number = (int) (Math.random() * 16 + 1);
 				balls[i].setNumber(number);
 			} else {
@@ -34,7 +34,7 @@ public class myback extends JPanel {
 				for (; j < i; j++) {
 					if (balls[j].getNumber() == number) {
 						i--;
-						break;// Èç¹ûÊı×ÖÏàÍ¬ Ìø³öÑ­»· iÍùÇ°µ÷Õû ÌŞ³ı´Ë´ÎÊı×Ö
+						break;// å¦‚æœæ•°å­—ç›¸åŒ è·³å‡ºå¾ªç¯ iå¾€å‰è°ƒæ•´ å‰”é™¤æ­¤æ¬¡æ•°å­—
 					}
 				}
 				if (j==i) {
@@ -45,28 +45,28 @@ public class myback extends JPanel {
 		}
 	}
 
-	// g´ú±í»­±Ê
+	// gä»£è¡¨ç”»ç¬”
 	public void paint(Graphics g) {
-		super.paint(g);// Õ{ÓÃ¸¸î»¨°×°å ®‹Çò
-		// »­Æß¸öÇò
+		super.paint(g);// èª¿ç”¨çˆ¶é¡èŠ±ç™½æ¿ ç•«çƒ
+		// ç”»ä¸ƒä¸ªçƒ
 		int x = 60;
 		for (int i = 0; i < balls.length; i++) {
-			// ¿ªÊ¼»­Ô² 1.ÉèÖÃ»­µÄÑÕÉ« 2.»­Ô²
+			// å¼€å§‹ç”»åœ† 1.è®¾ç½®ç”»çš„é¢œè‰² 2.ç”»åœ†
 			g.setColor(balls[i].getColor());
 			g.fillOval(x, 200, balls[i].getSize(), balls[i].getSize());
-			// »­Êı×Ö1.ÉèÖÃ»­±ÊÑÕÉ« 2.ÉèÖÃ»­±Ê´ÖÏ¸
+			// ç”»æ•°å­—1.è®¾ç½®ç”»ç¬”é¢œè‰² 2.è®¾ç½®ç”»ç¬”ç²—ç»†
 			g.setColor(Color.black);
-			g.setFont(new Font("ºÚÌå", 0, 25));// 25µ¥Î»ÊÇÏñËØ
-			// Êı×ÖÏà¶ÔÓÚÔ²ÓĞÎ»ÖÃ±àÒë
+			g.setFont(new Font("é»‘ä½“", 0, 25));// 25å•ä½æ˜¯åƒç´ 
+			// æ•°å­—ç›¸å¯¹äºåœ†æœ‰ä½ç½®ç¼–è¯‘
 			g.drawString(" " + balls[i].getNumber(), x + 20, 250);
 			x = x + 100;
 		}
 	}
 
-	// public static void main(String[] args) {
-	// myback myback = new myback();
-	// System.out.println(myback.balls);
-	// System.out.println(myback.balls[0]);
-	// Êı×éÔªËØ³õÊ¼ÖµºÍÀàÊôĞÔ³õÊ¼ÖµÒ»Ñù·ÖÎª»ù±¾ÀàĞÍºÍÒıÓÃÀàĞÍ
-	// }
+	 public static void main(String[] args) {
+		 //æ•°ç»„å…ƒç´ åˆå§‹å€¼å’Œç±»å±æ€§åˆå§‹å€¼ä¸€æ ·åˆ†ä¸ºåŸºæœ¬ç±»å‹å’Œå¼•ç”¨ç±»å‹
+		 myback myback = new myback();
+		 System.out.println(myback.balls);
+		 System.out.println(myback.balls[0]);
+	 }
 }

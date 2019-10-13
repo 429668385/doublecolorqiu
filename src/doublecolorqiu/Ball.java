@@ -4,11 +4,11 @@ import java.awt.Color;
 
 public class Ball {
 
-	private Color color; // ÊôĞÔ ÑÕÉ«
-	private int number; // ÊôĞÔ Êı×Ö
-	private int size;// ÊôĞÔ ´óĞ¡
+	private Color color; // å±æ€§ é¢œè‰²
+	private int number; // å±æ€§ æ•°å­—
+	private int size;// å±æ€§ å¤§å°
 
-	// ¹¹Ôìº¯Êı ±ØĞëÓëÀàÃûÒ»ÖÂ
+	// æ„é€ å‡½æ•° å¿…é¡»ä¸ç±»åä¸€è‡´
 	public Ball() {
 
 		color = color.green;
@@ -16,11 +16,11 @@ public class Ball {
 		size = 80;
 	}
 
-	// ÉèÖÃÊôĞÔµÄ·½·¨º¯Êı
+	// è®¾ç½®å±æ€§çš„æ–¹æ³•å‡½æ•°
 	// public void setColor(String color) {
 	// this.color = color;
-	// color = color;ÓëÉÏ¾äÍ¬Òâ µ«ÉÏ¾ä±í´ï¸ü¼Ó×¼È· ±ÜÃâÖØÃû
-	// this´ú±í±¾ÀàÊôĞÔ
+	// color = color;ä¸ä¸Šå¥åŒæ„ ä½†ä¸Šå¥è¡¨è¾¾æ›´åŠ å‡†ç¡® é¿å…é‡å
+	// thisä»£è¡¨æœ¬ç±»å±æ€§
 	// }
 	public void setColor(Color color) {
 		this.color = color;
