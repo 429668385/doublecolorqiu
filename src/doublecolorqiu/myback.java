@@ -3,6 +3,11 @@ package doublecolorqiu;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import javax.swing.JPanel;//类的來源
 
@@ -37,12 +42,13 @@ public class myback extends JPanel {
 						break;// 如果数字相同 跳出循环 i往前调整 剔除此次数字
 					}
 				}
-				if (j==i) {
+				if (j == i) {
 					balls[i].setNumber(number);
 				}
-				//balls[i].setNumber(number);
+				// balls[i].setNumber(number);
 			}
 		}
+		sout();
 	}
 
 	// g代表画笔
@@ -63,10 +69,25 @@ public class myback extends JPanel {
 		}
 	}
 
-	 public static void main(String[] args) {
-		 //数组元素初始值和类属性初始值一样分为基本类型和引用类型
-		 myback myback = new myback();
-		 System.out.println(myback.balls);
-		 System.out.println(myback.balls[0]);
-	 }
+	/**
+	 * 输出
+	 */
+	public void sout() {
+		List<Ball> ballArrays = Arrays.asList(this.balls);
+		Collections.sort(ballArrays, (o1, o2) -> {
+			if (o1.getColor().equals(Color.blue)) {
+				return 1;
+			}
+			if (o2.getColor().equals(Color.blue)) {
+				return -1;
+			}
+			return o1.getNumber() > o2.getNumber() ? 1 : -1;
+		});
+		// 数组元素初始值和类属性初始值一样分为基本类型和引用类型
+		for (Ball ball : ballArrays) {
+			System.out.print(ball.getNumber() + " ");
+		}
+		System.out.println();
+		this.balls = ballArrays.toArray(new Ball[] {});
+	}
 }

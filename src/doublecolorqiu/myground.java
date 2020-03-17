@@ -1,7 +1,5 @@
 package doublecolorqiu;
 
-import java.awt.Color;
-
 import javax.swing.JFrame;
 
 
